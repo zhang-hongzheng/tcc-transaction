@@ -6,6 +6,11 @@
     <display-name>Sample Dubbo Redpacket</display-name>
 
     <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>tcc-transaction-dubbo-redpacket</param-value>
+    </context-param>
+
+    <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:config/spring/local/appcontext-*.xml,classpath:tcc-transaction.xml,classpath:tcc-transaction-dubbo.xml
         </param-value>
@@ -20,14 +25,6 @@
         <param-name>log4jRefreshInterval</param-name>
         <param-value>60000</param-value>
     </context-param>
-
-    <listener>
-        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
-
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
 
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
@@ -47,6 +44,14 @@
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
     <servlet>
         <servlet-name>springmvc</servlet-name>
